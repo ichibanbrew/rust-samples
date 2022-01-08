@@ -1,2 +1,2 @@
-# rust-samples
+# Rust Samples
 Useful Rust sample code
