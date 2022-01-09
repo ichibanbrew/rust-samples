@@ -25,7 +25,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 match message {
                     Ok(msg) => {
                         match msg {
-                            Message::Text(msg) => println!("Received message (type: Text): {}", msg),
+                            Message::Text(msg) => {
+                                println!("Received message (type: Text): {}", msg)
+                            }
                             Message::Ping(_) => println!("Received message (type: Ping)"),
                             Message::Pong(_) => println!("Received message (type: Pong)"),
                             Message::Binary(_) => println!("Received message (type: Binary)"),
@@ -42,8 +44,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         // Task for sending message
         let ws_send_task = tokio::spawn(async move {
             match sink
-            .send(Message::Text(String::from("Message to send")))
-            .await {
+                .send(Message::Text(String::from("Message to send")))
+                .await
+            {
                 Ok(_) => println!("Sent message"),
                 Err(e) => eprintln!("Error sending message: {}", e),
             }
