@@ -1,9 +1,9 @@
 use chrono::{Timelike, Utc};
-use tokio::time;
 use std::sync::{
     atomic::{AtomicBool, Ordering},
     Arc,
 };
+use tokio::time;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
